@@ -8,7 +8,6 @@ mkdir @ExileLootDrop\addons
 copy src\ExileLootDrop\bin\Release\ExileLootDrop.dll @ExileLootDrop
 copy src\ExileLootDrop\bin\Release\ExileLootDrop.cfg @ExileLootDrop
 copy LICENSE.txt @ExileLootDrop
-copy README.txt @ExileLootDrop
-
+copy README.md @ExileLootDrop
 
 %MAKEPBO% -U -W -P -@=ExileLootDrop sqf @ExileLootDrop\addons\ExileLootDrop.pbo
