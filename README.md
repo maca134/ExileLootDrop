@@ -14,14 +14,6 @@ Get multiple items (returns an array of items, this is good for mission stuff):
 _items = ['table', 10] call ExileServer_system_lootManager_dropItem;
 ```
 
-ExileLootDrop.VR mission contains the original Exile method for loot and the original tables for testing
-```
-// SQF
-'CivillianLowerClass' call ExileServer_system_lootManager_dropItem_sqf
-
-// DLL
-'CivillianLowerClass' call ExileServer_system_lootManager_dropItem_ext
-```
 To Install:
 Run the mod on the server and stick the below into CfgExileCustomCode in you mission files
 ```
@@ -34,5 +26,14 @@ class CfgExileCustomCode
 ```
 
 ### Performance
+
+ExileLootDrop.VR mission contains the original Exile method for loot and the original tables for testing
+```
+// SQF
+'CivillianLowerClass' call ExileServer_system_lootManager_dropItem_sqf
+
+// DLL
+'CivillianLowerClass' call ExileServer_system_lootManager_dropItem_ext
+```
 
 ![Performance](https://dl.dropboxusercontent.com/s/wpk6m54pivmk04g/9964d7ad-7f4f-46bf-b5c5-5c64b696f8c3.png)
