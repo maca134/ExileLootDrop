@@ -1,4 +1,4 @@
-# Exile Loot Drop
+# Exile Loot Drop - [Download](https://github.com/maca134/ExileLootDrop/releases)
 
 A server mod/extension to replace the Exile loot drop function with a dll.
 
