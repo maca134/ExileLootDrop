@@ -21,6 +21,7 @@ class CfgExileCustomCode
 {
 	...
 	ExileServer_system_lootManager_dropItem = "\ExileLootDrop\ExileServer_system_lootManager_dropItem.sqf";
+	ExileServer_system_lootManager_spawnLootInBuilding = "\ExileLootDrop\ExileServer_system_lootManager_spawnLootInBuilding.sqf";
 	...
 };
 ```
