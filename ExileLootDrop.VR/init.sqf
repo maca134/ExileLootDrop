@@ -1,4 +1,15 @@
 ExileServer_system_lootManager_dropItem_sqf = {
+	/**
+	 * ExileServer_system_lootManager_dropItem
+	 *
+	 * Exile Mod
+	 * www.exilemod.com
+	 * © 2015 Exile Mod Team
+	 *
+	 * This work is licensed under the Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. 
+	 * To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-nd/4.0/.
+	 */
+	 
 	private["_lootTableName","_itemClassName","_lootTableConfig","_sum","_count","_half","_halfIndex","_lootTableEntries","_maxPossible","_chance","_startIndex","_endIndex","_i","_entry"];
 	_lootTableName = _this;
 	_itemClassName = "";
