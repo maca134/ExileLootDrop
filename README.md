@@ -38,3 +38,7 @@ ExileLootDrop.VR mission contains the original Exile method for loot and the ori
 ```
 
 ![Performance](https://dl.dropboxusercontent.com/s/wpk6m54pivmk04g/9964d7ad-7f4f-46bf-b5c5-5c64b696f8c3.png)
+
+### Tester EXE
+
+![Performance1](https://dl.dropboxusercontent.com/s/8kxb4uhlbv362mu/abd035c5-009b-4c3f-849e-525862c8f09e.png)
