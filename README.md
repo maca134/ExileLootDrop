@@ -24,6 +24,7 @@ class CfgExileCustomCode
 	...
 };
 ```
+Now replace @ExileLootDrop\ExileLootDrop.cfg with your own servers loot (this is the default Exile table). The loot is in the "pre-compiled" format.
 
 ### Performance
 
