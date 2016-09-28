@@ -7,3 +7,4 @@ src/ExileLootDropTester/obj/*
 *.suo
 src/packages/*
 .hgignore
+@ExileLootDrop.zip
