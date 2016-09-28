@@ -122,7 +122,7 @@ namespace ExileLootDrop
             var total = group.Items.Select(i => i.Chance).Sum();
             foreach (var item in group.Items.OrderByDescending(a => a.Chance))
             {
-                var chance = (decimal)item.Chance / total;
+                var chance = item.Chance / total;
                 var child = _cfgGroups.Find(g => g.Name == item.Item);
                 if (child != null)
                 {

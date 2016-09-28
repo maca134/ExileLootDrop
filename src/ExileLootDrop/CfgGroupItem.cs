@@ -5,7 +5,7 @@ namespace ExileLootDrop
         /// <summary>
         /// Item chance
         /// </summary>
-        public int Chance { get; }
+        public decimal Chance { get; }
 
         /// <summary>
         /// Item/group name
@@ -21,8 +21,8 @@ namespace ExileLootDrop
             var parts = line.Split(',');
             if (parts.Length != 2)
                 throw new CfgGroupItemException($"Item line is invalid: {line}");
-            int chance;
-            if (!int.TryParse(parts[0], out chance))
+            decimal chance;
+            if (!decimal.TryParse(parts[0], out chance))
                 throw new CfgGroupItemException($"Could not parse chance: {line}");
             Chance = chance;
             Item = parts[1].Trim();
