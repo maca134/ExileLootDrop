@@ -40,6 +40,8 @@ namespace ExileLootDrop
             var parts = input.Split('|');
             var table = parts[0];
             var count = (parts.Length == 2) ? int.Parse(parts[1]) : 1;
+            if (count > 200)
+                count = 200;
             try
             {
                 return string.Join("|", LootTable.GetItems(table, count));
