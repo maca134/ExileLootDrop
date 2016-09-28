@@ -38,6 +38,7 @@ _lootWeaponHolderNetIDs = [];
 	_lootHolder = objNull;
 	_numberOfItemsToSpawn = (floor (random _maximumNumberOfItemsPerLootSpot)) + 1;
 	_itemClassNames = [_lootTableName, _numberOfItemsToSpawn] call ExileServer_system_lootManager_dropItem;
+	if (_itemClassNames isEqualType "") then {_itemClassNames = [_itemClassNames];};
 	{
 		_itemClassName = _x;
 		if !(_itemClassName in _spawnedItemClassNames) then
