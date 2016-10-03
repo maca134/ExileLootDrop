@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DllEntry.cs" />
+    <Compile Include="IniParser.cs" />
     <Compile Include="Logger.cs" />
     <Compile Include="Loot.cs" />
     <Compile Include="CfgGroup.cs" />
@@ -61,6 +62,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="ExileLootDrop.cfg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="ExileLootDrop.ini">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="packages.config" />

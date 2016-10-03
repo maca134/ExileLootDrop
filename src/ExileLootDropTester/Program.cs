@@ -7,7 +7,7 @@ namespace ExileLootDropTester
 {
     class Program
     {
-        const int Loops = 1000000;
+        const int Loops = 50000;
 
         static void Main(string[] args)
         {

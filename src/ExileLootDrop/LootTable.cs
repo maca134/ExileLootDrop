@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace ExileLootDrop
 {
@@ -16,14 +17,18 @@ namespace ExileLootDrop
         public LootItem[] LootItems { get; }
 
         private readonly Random _rnd = new Random();
+        private readonly int _cacheCount;
+        private int _cachePtr;
+        private readonly LootItem[] _cacheItems;
 
         /// <summary>
         /// LootTable constuctor
         /// </summary>
         /// <param name="name">Table name</param>
         /// <param name="lootList">Item list</param>
-        public LootTable(string name, List<LootItem> lootList)
+        public LootTable(string name, List<LootItem> lootList, int cacheCount = 0)
         {
+            _cacheCount = cacheCount;
             Name = name;
             var sum = 0m;
             lootList.ForEach(i =>
@@ -32,6 +37,19 @@ namespace ExileLootDrop
                 i.Sum = sum;
             });
             LootItems = lootList.ToArray();
+            Logger.Log<LootTable>($"Pre caching loot for {Name}");
+            var cache = new List<LootItem>();
+            for (var i = 0; i < _cacheCount; i++)
+            {
+                var rnd = (decimal)_rnd.NextDouble();
+                foreach (var item in LootItems.Where(item => item.Sum >= rnd))
+                {
+                    cache.Add(item);
+                    break;
+                }
+            }
+            _cachePtr = 0;
+            _cacheItems = cache.ToArray();
         }
 
         /// <summary>
@@ -40,6 +58,11 @@ namespace ExileLootDrop
         /// <returns>Item classname</returns>
         public string Drop()
         {
+            if (_cacheCount != 0 && _cachePtr < _cacheCount)
+            {
+                return _cacheItems[_cachePtr++].Item;
+            }
+
             var rnd = (decimal)_rnd.NextDouble();
             foreach (var item in LootItems)
             {

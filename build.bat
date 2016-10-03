@@ -7,6 +7,7 @@ mkdir @ExileLootDrop\addons
 %MSBUILD% src\ExileLootDrop.sln /property:Configuration=release /target:Rebuild /verbosity:normal /nologo
 copy src\ExileLootDrop\bin\Release\ExileLootDrop.dll @ExileLootDrop
 copy src\ExileLootDrop\bin\Release\ExileLootDrop.cfg @ExileLootDrop
+copy src\ExileLootDrop\bin\Release\ExileLootDrop.ini @ExileLootDrop
 copy src\ExileLootDropTester\bin\Release\ExileLootDropTester.exe @ExileLootDrop
 copy LICENSE.txt @ExileLootDrop
 copy README.md @ExileLootDrop
