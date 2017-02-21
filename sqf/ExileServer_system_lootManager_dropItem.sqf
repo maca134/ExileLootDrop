@@ -27,8 +27,8 @@ _input params [
 ];
 private _packet = format['%1|%2', _table, _amount];
 private _response = 'ExileLootDrop' callExtension _packet;
-if (_response == 'ERROR') exitWith {
-	diag_log format['ExileLootDrop: Extension return error. Check logs! - %1', _packet];
+if ((_response select [0, 5]) == 'ERROR') exitWith {
+	diag_log format['ExileLootDrop: Extension return error. Check logs! - %1 - %2', _packet, _response];
 	""
 };
 private _return = if (_amount > 1) then {

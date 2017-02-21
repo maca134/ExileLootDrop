@@ -11,10 +11,10 @@ namespace ExileLootDrop
     public class DllEntry
     {
         /// <summary>
-        /// Entry point method for ARMA
+        /// Entry point method for ARMA 32 bit
         /// </summary>
         [DllExport("_RVExtension@12", CallingConvention = CallingConvention.Winapi)]
-        public static void RvExtension(StringBuilder output, int outputSize, [MarshalAs(UnmanagedType.LPStr)] string function)
+        public static void RvExtension32(StringBuilder output, int outputSize, [MarshalAs(UnmanagedType.LPStr)] string function)
         {
             try
             {
@@ -24,8 +24,25 @@ namespace ExileLootDrop
             {
                 Logger.Log(Logger.Level.Error, "Uncaught Exception!");
                 Logger.Log(ex);
-                output.Append("ERROR");
-            } 
+                output.Append($"ERROR - {function} - {ex.Message}");
+            }
+        }
+        /// <summary>
+        /// Entry point method for ARMA 64 bit
+        /// </summary>
+        [DllExport("RVExtension", CallingConvention = CallingConvention.Winapi)]
+        public static void RvExtension64(StringBuilder output, int outputSize, [MarshalAs(UnmanagedType.LPStr)] string function)
+        {
+            try
+            {
+                output.Append(Loot.Invoke(function));
+            }
+            catch (Exception ex)
+            {
+                Logger.Log(Logger.Level.Error, "Uncaught Exception!");
+                Logger.Log(ex);
+                output.Append($"ERROR - {function} - {ex.Message}");
+            }
         }
     }
 }

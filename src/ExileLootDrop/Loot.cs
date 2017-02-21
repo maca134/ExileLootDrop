@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Text.RegularExpressions;
 
 namespace ExileLootDrop
 {
@@ -64,7 +65,7 @@ namespace ExileLootDrop
         {
             var assembly = Assembly.GetExecutingAssembly();
             var assemblyName = Path.GetFileNameWithoutExtension(assembly.Location);
-            var iniPath = Path.Combine(BasePath, $"{assemblyName}.ini");
+            var iniPath = Path.Combine(BasePath, $"{Regex.Replace(assemblyName, @"_x64$", string.Empty)}.ini");
             if (!File.Exists(iniPath))
                 throw new LootException($"{assemblyName}.ini was not found");
             
