@@ -56,7 +56,7 @@ namespace ExileLootDrop
         }
         
         private readonly List<CfgGroup> _cfgGroups;
-        private Dictionary<string, LootTable> Table { get; } = new Dictionary<string, LootTable>();
+        public Dictionary<string, LootTable> Table { get; } = new Dictionary<string, LootTable>();
 
         /// <summary>
         /// Loot constructor

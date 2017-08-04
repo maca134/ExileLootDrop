@@ -1,21 +1,30 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using ExileLootDrop;
 
 namespace ExileLootDropTester
 {
-    class Program
+    internal class Program
     {
-        const int Loops = 50000;
+        private const int Loops = 50000;
 
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
             Console.WriteLine("Loading Loot");
             //Loot.LootTable
             Console.WriteLine();
 
             var tables = Loot.LootTable.GetTables();
+            if (args.Length > 0 && args[0] == "dump")
+            {
+                File.WriteAllText(
+                    Path.Combine(Environment.CurrentDirectory, "dump.txt"),
+                    $"[\"{string.Join("\",\"", tables.Select(table => string.Join("\",\"", Loot.LootTable.Table[table].LootItems.Select(l => l.Item))))}\"]"
+                );
+                return;
+            }
             for (var i = 0; i < tables.Length; i++)
             {
                 var table = tables[i];
@@ -25,8 +34,7 @@ namespace ExileLootDropTester
             Console.WriteLine("Select a table: ");
             var input = Console.ReadLine();
             Console.WriteLine();
-            int index;
-            if (!int.TryParse(input, out index))
+            if (!int.TryParse(input, out int index))
             {
                 Console.WriteLine("input error");
                 return;
